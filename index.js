@@ -74,10 +74,9 @@ fifaData.forEach(function (item) {
 
 console.log(awayteamgoals14);
 
-//e winner of 2014 cup
+//(e) winner of 2014 cup
 //what team has the highest goals
 
-const winner2014 = [];
 //dont need the year series or the original fifa because we already have it
 
 if (hometeamGoals14 > awayteamgoals14) {
@@ -86,11 +85,26 @@ if (hometeamGoals14 > awayteamgoals14) {
   console.log(awayTeamName14[0]);
 }
 
-/* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
+/* Task 2: Create a function called  getFinals that takes `fifaData` as an argument and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
-  /* code here */
+// function getFinals(fifaData) {
+
+//   const finalData = fifaData.filter(function (item) {
+//     return item["Stage"] === "Final";
+//   });
+
+//   console.log(finalData);
+// }
+
+// getFinals(fifaData);
+
+//mario suggestion
+function getFinals(fifaData) {
+  return fifaData.filter(function (item) {
+    return item["Stage"] === "Final";
+  });
 }
+console.log(getFinals(fifaData));
 
 /* Task 3: Impliment a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
