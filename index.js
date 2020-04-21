@@ -170,9 +170,42 @@ getAllWinners(getWinners, getYears);
 Hint: Investigate your data to find "team initials"!
 Hint: use `.reduce` */
 
-function getCountryWins(/* code here */) {
-  /* code here */
+//I'll give you an array of keys and I want you to give me back the Team initials along with the number of cups they've won.
+
+// in order for me to pull the team initials I need to run a "loop or forEach"
+
+function getCountryWins(fifaData, initials) {
+  let countryName = "";
+  let finals = getFinals(fifaData);
+
+  console.log(finals);
+  let winners = getWinners(getFinals);
+  console.log(winners);
+
+  for (let i = 0; i < finals.length; i++)
+    if (
+      finals[i]["Home Team Initials"] === initials ||
+      finals[i]["Away Team Initials"] === initials
+    ) {
+      countryName =
+        finals[i]["Home Team Initials"] === initials
+          ? finals[i]["Home Team Name"]
+          : finals[i]["Away Team Name"];
+      break;
+    }
+
+  return winners.reduce(
+    (val, winner) => (winner === countryName ? val + 1 : val),
+    0
+  );
 }
+
+//or could have been written as:
+// if(finals[i]["Home Team Initials"] ===initials){
+
+//   countryName = finals[i] ["Home Team Name"];
+// }
+// else countryName = finals[i]["Away Team Name"];
 
 getCountryWins();
 
