@@ -155,13 +155,15 @@ function getAllWinners(getWinners, getYears) {
   let x = getWinners(getFinals);
   let y = getYears(getFinals);
 
-  console.log(x);
-  console.log(y);
+  const getAllbyYear = [];
 
-  //getname, get year return `in ...
+  for (let i = 0; i < x.length; i++)
+    getAllbyYear.push(`In ${y[i]}, ${x[i]} won the world cup!`);
+
+  return getAllbyYear;
 }
-
-// getAllWinners();
+console.log(getAllWinners(getWinners, getYears));
+getAllWinners(getWinners, getYears);
 
 /* Task 7: Create a function called `getCountryWins` that takes the parameters `data` and `team initials` and returns the number of world cup wins that country has had. 
 
